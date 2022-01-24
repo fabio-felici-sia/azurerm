@@ -170,3 +170,8 @@ variable "storage_mount" {
   type = string
   description = ""
 }
+
+variable "storage_access_key" {
+  type = string
+  description = ""
+}
