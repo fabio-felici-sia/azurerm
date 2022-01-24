@@ -149,3 +149,24 @@ variable "vnet_route_all_enabled" {
 variable "tags" {
   type = map(any)
 }
+
+variable "storage_file_name" {
+  type = string
+  description = "Storage file share name"
+}
+variable "storage_type" {
+  type = string
+  description = "Storage mount type ()"
+}
+variable "storage_account_name" {
+  type = string
+  description = ""
+}
+variable "storage_account_shared_name" {
+  type = string
+  description = ""
+}
+variable "storage_mount" {
+  type = string
+  description = ""
+}
