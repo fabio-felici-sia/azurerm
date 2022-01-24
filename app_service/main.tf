@@ -66,7 +66,7 @@ resource "azurerm_app_service" "this" {
     account_name = var.storage_account_name
     share_name = var.storage_account_shared_name
     mount_path = var.storage_mount
-    access_key = var.access_key
+    access_key = var.storage_access_key
   }
 
   identity {
