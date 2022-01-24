@@ -61,12 +61,11 @@ resource "azurerm_app_service" "this" {
   }
 
   storage_account {
-    count = var.enable_storage ? 1 : 0
     name = var.storage_file_name
     type = var.storage_type
     account_name = var.storage_account_name
     share_name = var.storage_account_shared_name
-    mounth_path = var.storage_mount
+    mount_path = var.storage_mount
   }
 
   identity {
