@@ -59,14 +59,17 @@ resource "azurerm_app_service" "this" {
       }
     }
   }
-
-  storage_account {
-    name = var.storage_file_name
-    type = var.storage_type
-    account_name = var.storage_account_name
-    share_name = var.storage_account_shared_name
-    mount_path = var.storage_mount
-    access_key = var.storage_access_key
+  
+  dynamic "storage_account" {
+    for_each = var.storage_mounts
+    content {
+      name         = lookup(storage_account.value, "name")
+      type         = lookup(storage_account.value, "type", "AzureFiles")
+      account_name = lookup(storage_account.value, "account_name", null)
+      share_name   = lookup(storage_account.value, "share_name", null)
+      access_key   = lookup(storage_account.value, "access_key", null)
+      mount_path   = lookup(storage_account.value, "mount_path", null)
+    }
   }
 
   identity {
