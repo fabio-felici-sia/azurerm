@@ -154,4 +154,5 @@ variable "tags" {
 variable "storage_mounts" {
   type = list(map(string))
   description = "List of mapping with storage path mapping (name,type,account_name,share_name,access_key,mount_path)"
+  default = [] 
 }

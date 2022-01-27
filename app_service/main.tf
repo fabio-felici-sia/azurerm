@@ -61,7 +61,7 @@ resource "azurerm_app_service" "this" {
   }
   
   dynamic "storage_account" {
-    for_each = var.storage_mounts
+    for_each = var.storage_mounts != null ? var.storage_mounts : []
     content {
       name         = lookup(storage_account.value, "name")
       type         = lookup(storage_account.value, "type", "AzureFiles")
